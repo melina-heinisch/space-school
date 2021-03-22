@@ -1,0 +1,65 @@
+@()(implicit assetsFinder: AssetsFinder)
+
+    @main("Handbuch") {
+    <!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <title>Handbuch</title>
+                <link rel="stylesheet" type="text/css" href="@assetsFinder.path("/stylesheets/guide.css")">
+            </head>
+            <body>
+                <a href="@routes.MainPageController.mainpage()" id="homebutton"> <img class="homebutton" src="@routes.Assets.versioned("/images/home.png")" alt="Home" width="50" height="50"></a>
+
+                <div id="screen">
+                    <img src="@routes.Assets.versioned("/images/handbuch/Screen-border.png")" width="1000px">
+                    <button class="navigate" id="left" title="Zur vorherigen Seite" onclick="backwards()"><img src="@routes.Assets.versioned("/images/handbuch/arrow-left.png")" width="60px"> </button>
+                    <button class="navigate" id="right" title="Zur nächsten Seite" onclick="forward()"><img src="@routes.Assets.versioned("/images/handbuch/arrow-right.png")" width="60px"> </button>
+                    <p id="pageNumber">Seite 1/7</p>
+
+                    <div id="startingPage">
+                        <p class="heading">Willkommen bei deinem Astronauten Handbuch!</p>
+                        <img id="startingImg" src="@routes.Assets.versioned("/images/handbuch/astronaut.png")">
+                    </div>
+
+                    <div id="satelliteImagePage" class="hidden">
+                        <p class="heading">Sattelit: Übersicht</p>
+                        <img id="satelliteImg" src="" >
+                    </div>
+
+                    <div id="satelliteTextPage" class="hidden">
+                        <p class="heading">Sattelit: Extra Info</p>
+                        <textarea id="satelliteText" readonly></textarea>
+                    </div>
+
+                    <div id="suitImagePage" class="hidden">
+                        <p class="heading">Weltraumanzug: Übersicht</p>
+                        <img id="suitImg" src="">
+                    </div>
+
+                    <div id="suitTextPage" class="hidden">
+                        <p class="heading">Weltraumanzug: Extra Info</p>
+                        <textarea id="suitText" readonly></textarea>
+                    </div>
+
+                    <div id="launcherImagePage" class="hidden">
+                        <p class="heading">Trägerrakete: Übersicht</p>
+                        <img id="launcherImg" src="">
+                    </div>
+
+                    <div id="launcherTextPage" class="hidden">
+                        <p class="heading">Trägerrakete: Extra Info</p>
+                        <textarea id="launcherText" readonly></textarea>
+                    </div>
+
+                    <div id="locked" class="hidden">
+                        <p class="heading">Diese Seite ist noch nicht freigeschalten!</p>
+                        <p class="heading" id="lockedText"> Spiele weiter um diese Seite freizuschalten!</p>
+                    </div>
+                </div>
+
+                <script src="@routes.Assets.versioned("/javascripts/guideJS.js")"></script>
+
+            </body>
+        </html>
+    }

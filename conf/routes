@@ -1,0 +1,51 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET         /                       controllers.MainPageController.welcome
+
+GET         /main                   controllers.MainPageController.mainpage(request: Request)
+POST        /main                   controllers.MainPageController.setUserList(request: Request)
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file           controllers.Assets.versioned(file)
+
+GET         /login                  controllers.LoginController.login
+POST        /login                  controllers.LoginController.loginValidate(request: Request)
+GET         /logout                 controllers.MainPageController.logout(request: Request)
+
+# Controller showing the Profile Page
+GET         /profile                controllers.ProfilePageController.profilePage(request: Request)
+POST        /rewardIcon             controllers.ProfilePageController.getRewardIcons(request: Request)
+
+GET         /edit                   controllers.ProfilePageController.editProfile(request: Request)
+POST        /edit                   controllers.ProfilePageController.changeProfileData(request: Request)
+
+GET         /guide                  controllers.GuideController.guide(request: Request)
+POST        /guide                  controllers.GuideController.getImagesAndTexts
+POST        /progress               controllers.GuideController.getUserProgress(request: Request)
+
+GET         /register               controllers.LoginController.register
+POST        /register               controllers.LoginController.registerValidate(request: Request)
+
+GET         /puzzle                 controllers.MainGameController.puzzle(request: Request)
+GET         /levelsPuzzle           controllers.MainGameController.chooseLevelPuzzle(request: Request)
+
+GET         /mainGame               controllers.MainGameController.mainGame(request: Request)
+GET         /levels                 controllers.MainGameController.chooseLevel(request: Request)
+POST        /mainGame               controllers.MainGameController.getLevel(request: Request)
+
+GET         /quiz                   controllers.MainGameController.quiz(request: Request)
+GET         /levelsQuiz             controllers.MainGameController.chooseLevelQuiz(request: Request)
+POST        /quiz                   controllers.MainGameController.getQuestions(request: Request)
+
+POST        /currentProgress        controllers.MainGameController.getCurrentProgress(request: Request)
+POST        /collectProgress        controllers.MainGameController.setCollectProgress(request: Request)
+POST        /puzzleProgress         controllers.MainGameController.setPuzzleProgress(request: Request)
+POST        /quizProgress           controllers.MainGameController.setQuizProgress(request: Request)
+
+GET         /friends                controllers.FriendsController.friends(request: Request)
+POST        /friends                controllers.FriendsController.updateFriendships(request: Request)
+
+GET         /friendProfile          controllers.FriendsController.openFriendProfile(request: Request)

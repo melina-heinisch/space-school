@@ -1,0 +1,78 @@
+@()(implicit assetsFinder: AssetsFinder)
+
+    @main("Puzzle Weltraumanzug") {
+    <!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <title>Puzzle Weltraumanzug</title>
+                <link rel="stylesheet" type="text/css" href="@assetsFinder.path("stylesheets/puzzleSuit.css")">
+
+                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                <script type="text/javascript" src="@routes.Assets.versioned("javascripts/levelData.js")"> </script>
+                <script type="text/javascript" src="@routes.Assets.versioned("javascripts/levelSelectionQuiz.js")"> </script>
+            </head>
+
+            <body>
+                <div class="header_row">
+                    <a href="@routes.MainPageController.mainpage()"> <img class="homebutton" src="@routes.Assets.versioned("/images/home.png")" alt="Home" width="50" height="50"></a>
+                    <a href= '@routes.MainGameController.chooseLevelPuzzle()'><img id="levelBackBtn" src="@routes.Assets.versioned("/images/selectLevel.png")" alt="backIcon"></a>
+                    <h1 class="page_heading">Level 2: Weltraumanzug</h1>
+                </div>
+
+                <div id="container">
+                    <div id="left" class="sides"></div>
+                    <div id="target">
+                        <div id="helmet_target" class="parts_target"></div>
+                        <div id="helmet_inside_target" class="parts_target"></div>
+                        <div id="arm_target" class="parts_target"></div>
+                        <div id="torso_target" class="parts_target"></div>
+                        <div id="pants_target" class="parts_target"></div>
+                        <div id="shoes_target" class="parts_target"></div>
+                        <div id="backpack_target" class="parts_target"></div>
+                        <div id="glove_target" class="parts_target"></div>
+
+                        <img id="silhouette">
+                    </div>
+                    <div id="right" class="sides"></div>
+
+                    <div id="helmet_bubble_target" class="bubble_target"></div>
+                    <div id="helmet_inside_bubble_target" class="bubble_target"></div>
+                    <div id="arm_bubble_target" class="bubble_target"></div>
+                    <div id="torso_bubble_target" class="bubble_target"></div>
+                    <div id="pants_bubble_target" class="bubble_target"></div>
+                    <div id="shoes_bubble_target" class="bubble_target"></div>
+                    <div id="backpack_bubble_target" class="bubble_target"></div>
+                    <div id="glove_bubble_target" class="bubble_target"></div>
+
+                    <button class="basic_btn primary_btn quiz_btn-hidden quiz_btn" id ="quiz_btn_modal" data-toggle="modal" data-target="#handbuchHint" >
+                        Hier gehts weiter!</button>
+                    <button class="basic_btn primary_btn quiz_btn-hidden quiz_btn" id ="quiz_btn_noModal" >Zum Quiz!</button>
+                </div>
+
+                <div class="modal fade" id="handbuchHint" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Glückwunsch!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Du hast eine neue Seite im Handbuch freigeschalten!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn basic_btn secondary_btn" onclick="location.href = 'guide'">
+                                    Zum Handbuch</button>
+                                <button type="button" class="btn basic_btn primary_btn" onclick="openLevel(2)">
+                                    Weiter zum Quiz</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript" src="@routes.Assets.versioned("javascripts/puzzle.js")"> </script>
+            </body>
+        </html>
+    }

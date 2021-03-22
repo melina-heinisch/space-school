@@ -1,0 +1,41 @@
+@()(implicit assetsFinder: AssetsFinder, name: String, rank: String)
+<!-- Name wird von Controller geschickt und im Profil angezeigt -->
+
+    @main("Mein Profil") {
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" type="text/css" href="@assetsFinder.path("stylesheets/profilePage.css")">
+            <title>Profile Page</title>
+            <script src="@routes.Assets.versioned("javascripts/profilePageJs.js")"></script>
+        </head>
+
+        <body>
+                <!-- Homebutton -->
+            <div class="header_row">
+                <a href="@routes.MainPageController.mainpage()"> <img class="homebutton" src="@routes.Assets.versioned("/images/home.png")" alt="Home" width="50" height="50"></a>
+                <h1 class="page_heading">Astronauten ID</h1>
+            </div>
+                <!-- Wrapper für ID content, damit es zentriert und sich mit Fenstergröße bewegt-->
+            <div class="wrap">
+
+                <img src= "" alt="ProfilePicture" id="profilePicture" width="210px">
+
+                    <!-- Label, damit sie beide in einer Zeile bleiben-->
+                <label id="nameTag"> <b>Name:</b> </label>
+                <label id="presentedName"> @name</label>
+
+                <label id="rankTag"> <b>Rang:</b> </label>
+                <label id="currentRank"> @rank </label>
+
+                <p id="rewards"> <b>Abzeichen:</b></p>
+                <div id="rewardIcons" class="container">
+                    <img src="" id="rewardIcon1" width="60">
+                    <img src="" id="rewardIcon2" width="60">
+                    <img src="" id="rewardIcon3" width="60">
+                </div>
+                <p id="info" >Dieser Ausweis gibt dir Zugang zu allen <br> SpaceSchool Spielen</p>
+
+                <button onclick="toEdit()" id="change_info" class="basic_btn">Bearbeiten</button>
+            </div>
+        </body>
+    }

@@ -1,0 +1,75 @@
+@()(implicit assetsFinder: AssetsFinder, name: String)
+
+    @main("Profile editieren") {
+        <head>
+            <meta charset="UTF-8">
+            <title>Profil Edit Page</title>
+            <link rel='stylesheet' href="@assetsFinder.path("stylesheets/editProfile.css")">
+        </head>
+        <body>
+            <div class="header_row">
+                <a href="@routes.MainPageController.mainpage()" ><img class="homebutton" src="@routes.Assets.versioned("/images/home.png")" alt="home"></a>
+                <h1 class="page_heading">Profil bearbeiten</h1>
+            </div>
+            <div class="center">
+                <label class="block" for="newName">Neuer Benutzername:</label>
+                <div id="NameInput">
+                    <input type="text" class="form-control nameInput" id="newName" name="newName" value="@name">
+                </div>
+                <label>Wähle ein Profilbild:</label>
+                <table id="profilePictureTable">
+                    <tr>
+                        <td>
+                            <img class="profilePicture" id="pic_1" src="" alt="picture1">
+                        </td>
+                        <td>
+                            <img class="profilePicture" id="pic_2" src="" alt="picture2">
+                        </td>
+                        <td>
+                            <img class="profilePicture" id="pic_3" src="" alt="picture3">
+                        </td>
+                        <td>
+                            <img class="profilePicture" id="pic_4" src="" alt="picture4">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img class="profilePicture" id="pic_5" src="" alt="picture5">
+                        </td>
+                        <td>
+                            <img class="profilePicture" id="pic_6" src="" alt="picture6">
+                        </td>
+                        <td>
+                            <img class="profilePicture" id="pic_7" src="" alt="picture7">
+                        </td>
+                        <td>
+                            <img class="profilePicture" id="pic_8" src="" alt="picture8">
+                        </td>
+                    </tr>
+                </table>
+
+                <button onclick="saveChanges()" id="change_info" class="primary_btn basic_btn" >Speichern</button>
+
+            </div>
+
+            <div class="modal fade" id="changedProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog back" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ändern Erfolgreich</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Deine Änderungen wurden erfolgreich gespeichert!
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="@routes.Assets.versioned("javascripts/editProfileJs.js")"> </script>
+        </body>
+    }

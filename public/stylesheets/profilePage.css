@@ -1,0 +1,175 @@
+h1 {
+    font-family: 'Share Tech Mono', monospace;
+    text-align: center;
+    color: white;
+    margin-top: 6%;
+}
+
+/* Hintergrund des Bilds ist transparent damit icon richtig angezeigt wird, hat gewisse Größe */
+.img {
+    background: transparent;
+    width: 30px;
+    height: 30px;
+}
+
+/* Wrapper, um alle darin enthaltene Elemente automatisch auf der Seite zu zentrieren, und ist im Hintergrund(relative)*/
+.wrap {
+    background-image: url(../images/ID2.png);
+    margin: auto;
+
+    transform: translate(0%, 15%);
+
+    width: 727px;
+    height: 350px;
+
+    position: relative;
+}
+
+/*ID Element löst Zeilenumbruch aus (display: block) und wird automatisch im wrapper zentriert, und ist im Hintergrund(relative)*/
+#idBackground {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+/*Profilbild ist im Vordergrung (absolute), zentriert sich im wrapper (auto) an und steht an einer gewissen Position*/
+#profilePicture {
+    position: absolute;
+    margin: auto;
+    top: 22%;
+    bottom: 0;
+    left: 0;
+    right: 62%;
+}
+
+/*Text zu Name ist im Vordergrung (absolute), zentriert sich im wrapper (auto) an und steht an einer gewissen Position*/
+#nameTag {
+    position: absolute;
+    font-size: 30px;
+    text-align: left;
+    top: 31%;
+    bottom: 0%;
+    left: 36%;
+    right: 16%;
+}
+
+#presentedName {
+    position: absolute;
+    font-size: 30px;
+    width: 500px;
+    text-align: left;
+    top: 31%;
+    bottom: 0%;
+    left: 55%;
+    right: 0%;
+}
+
+/*Text zu Rank ist im Vordergrung (absolute), zentriert sich im wrapper (auto) an und steht an einer gewissen Position*/
+#rankTag {
+    position: absolute;
+    font-size: 30px;
+    text-align: left;
+    top: 42%;
+    bottom: 0%;
+    left: 36%;
+    right: 16%;
+}
+
+#currentRank {
+    position: absolute;
+    font-size: 30px;
+    width: 500px;
+    text-align: left;
+    top: 42%;
+    bottom: 0%;
+    left: 55%;
+    right: 0%;
+}
+
+#rankTag, #currentRank, #rewards {
+    margin: 10px auto auto auto;
+}
+
+/*Securitiy überschrift ist im Vordergrung (absolute), zentriert sich im wrapper(auto) an und steht an einer gewissen Position*/
+#rewards {
+    position: absolute;
+    font-size: 30px;
+    text-align: left;
+    top: 57%;
+    bottom: 0%;
+    left: 36%;
+    right: 0%;
+}
+
+/* Security Text ist im Vordergrung (absolute), zentriert sich im wrapper (auto) an und steht an einer gewissen Position */
+#securíty_content {
+    position: absolute;
+    font-size: 30px;
+    color: red;
+    margin: auto;
+    text-align: left;
+    top: 64%;
+    bottom: 0%;
+    left: 36%;
+    right: 0%;
+}
+
+/* Info Text ist im Vordergrung (absolute), zentriert sich im wrapper (auto) an und steht an einer gewissen Position */
+#info {
+    position: absolute;
+    font-size: 15px;
+    color: darkred;
+    margin: auto;
+    text-align: left;
+    top: 81%;
+    bottom: 0%;
+    left: 36%;
+    right: 0%;
+    font-style: italic;
+}
+
+/* Button ist im Vordergrung, an einer gewissen Position. Er hat eine gewisse Höhe und
+die Maus wird zu einer pointer Hand. Er zentiert sich außerdem im Wrapper*/
+#change_info {
+    position: absolute;
+
+    font-size: 15px;
+    text-align: center;
+    background-color: #1B0454;
+    border: black;
+    color: white; /*text color*/
+
+    top: 80%;
+    bottom: 0;
+    left: 80%;
+    right: 0;
+
+    height: 30px;
+    cursor: pointer;
+    margin: auto;
+
+}
+
+#rewardIcons {
+    position: absolute;
+    margin-top: 29%;
+    margin-left: 62%;
+}
+
+#rewardIcon1 {
+    margin-right: 10px;
+}
+
+#rewardIcon2 {
+    margin-right: 10px;
+}
+
+#rewardIcon3 {
+    margin-right: 10px;
+}
+
+#friend_heading {
+    margin-top: unset;
+    display: unset;
+}

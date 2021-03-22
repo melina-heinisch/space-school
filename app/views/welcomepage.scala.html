@@ -1,0 +1,31 @@
+@import controllers.routes
+@import views.html.main
+@import controllers.AssetsFinder
+@()(implicit assetsFinder: AssetsFinder)
+
+    @main("Space School") {
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/welcome_style.css")">
+        </head>
+        <body>
+            <div id="welcome_header">
+                <h3>Willkommen in der</h3>
+                <h1>Space School!</h1>
+            </div>
+            <div id="desc_text">
+                <p>Hier kannst du spielerisch mehr über Satelliten, den Weltraumanzug und noch vieles mehr lernen!
+                    <br/>
+                    <br/>
+                    Zuerst wirst du im Weltall die verlorenen Teile einsammeln und sie dann wieder zu einem vollständigen Objekt zusammenfügen.
+                    Dabei lernst du etwas mehr über die einzelnen Teile und kannst dein Wissen dann in einem Quiz überprüfen.
+                    <br/>
+                    <br/>
+                    Viel Spaß!
+                </p>
+            </div>
+            <button id="welcome_btn" class="primary_btn basic_btn" onclick="location.href = '@routes.LoginController.login()'">
+                Los geht's!</button>
+        </body>
+    }

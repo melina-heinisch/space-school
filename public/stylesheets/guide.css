@@ -1,0 +1,116 @@
+#screen {
+    height: 656px;
+    width: 1000px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: rgba(245, 245, 245, 0.67);
+    border-radius: 30px;
+}
+
+#homebutton {
+    position: relative;
+    left: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
+button, img {
+    background: transparent;
+}
+
+textarea {
+    width: 800px;
+    height: 400px;
+    border-radius: 6px;
+    background-color: transparent;
+    border: 10px;
+    resize: none;
+    font-size: 20px;
+    position: absolute;
+    top: 120px;
+    left: 100px;
+}
+
+.navigate {
+    border: transparent;
+}
+
+#left {
+    position: absolute;
+    margin: auto;
+    left: 810px;
+    bottom: 80px;
+}
+
+#right {
+    position: absolute;
+    margin: auto;
+    left: 890px;
+    bottom: 80px;
+}
+
+.heading {
+    position: absolute;
+    text-align: left;
+    font-size: 30px;
+    bottom: 520px;
+    left: 70px;
+}
+
+#pageNumber {
+    position: absolute;
+    text-align: left;
+    font-size: 20px;
+    bottom: 95px;
+    left: 85px;
+}
+
+#lockedText {
+    left: 190px;
+    top: 290px;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.locked {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#startingImg {
+    width: 45%;
+    left: 260px;
+    bottom: 80px;
+    position: absolute;
+}
+
+#satelliteImg {
+    width: 85%;
+    left: 60px;
+    bottom: 170px;
+    position: absolute;
+}
+
+#suitImg {
+    height: 65%;
+    left: 240px;
+    bottom: 115px;
+    position: absolute;
+}
+
+#launcherImg {
+    height: 62%;
+    left: 150px;
+    bottom: 145px;
+    position: absolute;
+}
+
+
+

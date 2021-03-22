@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Nova+Mono&family=Share+Tech+Mono&display=swap');
+
+body {
+    vertical-align: center;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 1px;
+    color: #2C003E;
+}
+
+.block {
+    display: block;
+}
+
+.center {
+    width: 40%;
+    background-color: rgba(242, 242, 242, 0.67);
+    display: block;
+    margin: 1% auto auto auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#profilePictureTable {
+    margin-bottom: 10px;
+}
+
+.profilePicture {
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    border-radius: 40px;
+}
+
+#newName {
+    width: available;
+    border-style: none;
+    margin-left: 0;
+    border-radius: 9px;
+}
+
+#NameInput {
+    width: 100%;
+    display: inline-flex;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.nameInput {
+    display: flex;
+    margin-left: 12px;
+}
+
+#change_info {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+}

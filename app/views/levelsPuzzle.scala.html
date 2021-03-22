@@ -1,0 +1,33 @@
+@()(implicit assetsFinder: AssetsFinder)
+
+    @main("Level wählen") {
+        <head>
+            <title></title>
+            <link rel="stylesheet" href="@routes.Assets.versioned("/stylesheets/levels.css")">
+        </head>
+        <body>
+
+            <div class="header_row">
+                <a href="@routes.MainPageController.mainpage()" ><img class="homebutton" src="@routes.Assets.versioned("/images/home.png")" alt="home"></a>
+                <h1 class="page_heading">Wähle ein Puzzle Level</h1>
+            </div>
+            <div id="icon_wrapper">
+                <div id="lvl1Icon" class="level_icon" onclick="openLevel(1)">
+                    <h3>Level 1</h3>
+                    <img class="lvl_pic" id="lvl1Pic" src="@routes.Assets.versioned("/images/levelSelection/level1/satelliteCensored.png")" alt="lvl1">
+                </div>
+
+                <div id="lvl2Icon" class="level_icon" onclick="openLevel(2)">
+                    <h3>Level 2</h3>
+                    <img class="lvl_pic" id="lvl2Pic" src="@routes.Assets.versioned("/images/levelSelection/level2/spaceSuitCensored.png")" alt="lvl2">
+                </div>
+
+                <div id="lvl3Icon" class="level_icon" onclick="openLevel(3)">
+                    <h3>Level 3</h3>
+                    <img class="lvl_pic" id="lvl3Pic" src="@routes.Assets.versioned("/images/levelSelection/level3/launcherCensored.png")" alt="lvl3">
+                </div>
+            </div>
+
+            <script src="@routes.Assets.versioned("javascripts/levelSelectionPuzzle.js")"></script>
+        </body>
+    }

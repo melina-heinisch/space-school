@@ -1,0 +1,27 @@
+@*
+* This template is called from the `index` template. This template
+* handles the rendering of the page header and body tags. It takes
+* two arguments, a `String` for the title of the page and an `Html`
+* object to insert into the body of the page.
+*@
+@import controllers.AssetsFinder
+@import controllers.routes
+@(title: String)(content: Html)(implicit assetsFinder: AssetsFinder)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @* Here's where we render the page title `String`. *@
+    <title>@title</title>
+    <script src="@routes.Assets.versioned("javascripts/jquery-3.5.1.js")"></script>
+    <link rel="stylesheet" href="@assetsFinder.path("stylesheets/bootstrap.min.css")">
+    <link rel="shortcut icon" type="image/png" href="@assetsFinder.path("images/AstronautLogin.png")">
+    <script src="@routes.Assets.versioned("javascripts/bootstrap.bundle.js")"></script>
+    <link rel="stylesheet" href="@assetsFinder.path("stylesheets/style.css")">
+    </head>
+    <body>
+        @* And here's where we render the `Html` object containing
+        * the page content. *@
+        @content
+    </body>
+</html>

@@ -1,0 +1,161 @@
+#profile_Dropdown {
+    color: white;
+    text-decoration: none;
+}
+
+#welcome_left {
+    color: white;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 28px;
+    padding: 10px;
+    text-decoration: none;
+    cursor: default;
+}
+
+#tooltip {
+    position: absolute;
+    width: 180px;
+    height: 80px;
+}
+
+#dropdown_items {
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+
+.login_nav {
+    width: auto;
+    color: white;
+    font-weight: bold;
+    padding: 10px 10px;
+}
+
+nav {
+    text-align: left;
+}
+
+.menuIcons {
+    cursor: pointer;
+    width: 55px;
+}
+
+#menuBook {
+    width: 60px;
+    height: 55px;
+}
+
+#menuGlobe {
+    width: 60px;
+    height: 55px;
+}
+
+/* Persönliche Nachricht an den User */
+#welcome_message {
+    color: white;
+    width: max-content;
+    padding: 25px 15px;
+    font-size: 22px;
+    font-family: 'Share Tech Mono', monospace;
+    cursor: default;
+}
+
+#main_moon {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+}
+
+#main_tele {
+    width: 15%;
+    position: absolute;
+    right: 8%;
+    bottom: 10%;
+}
+
+#main_satellite {
+    position: absolute;
+    left: 5%;
+    width: 10%;
+}
+
+#main_earth {
+    width: 30%;
+    right: 35%;
+    position: absolute;
+}
+
+#earth_div {
+    text-align: center;
+}
+
+#tele_div {
+    text-align: right;
+}
+
+#main_earth:hover {
+    width: 31%;
+    cursor: pointer;
+}
+
+#main_tele:hover {
+    width: 16%;
+    cursor: pointer;
+    visibility: visible;
+}
+
+#main_satellite:hover {
+    width: 11%;
+    cursor: pointer;
+    visibility: visible;
+}
+
+.intro_img {
+    border-radius: 5px;
+    width: 75%;
+}
+
+#question {
+    width: 50%;
+}
+
+#modalDiv {
+    display: block;
+    horiz-align: right;
+}
+
+/* -------------------- Intro Modal ----------------------- */
+
+#intro_body {
+    opacity: .9;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 17px;
+    color: darkslategray;
+}
+
+#intro_Header {
+    color: darkslategrey;
+    font-family: "Share Tech Mono", monospace;
+}
+
+.intro_Heading {
+    font-size: 25px;
+    font-weight: bold;
+    color: #150485;
+}
+
+#intro_pageNrSpan {
+    margin: 0 15px 0 0;
+    color: darkslategrey;
+    font-size: 20px;
+}
+
+#intro_btn {
+    opacity: .6;
+    margin-top: 14px;
+}
+
+#intro_btn:hover {
+    opacity: .8;
+}

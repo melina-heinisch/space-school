@@ -1,0 +1,184 @@
+#container {
+    border-radius: 9px;
+    height: 580px;
+    width: 1000px;
+    margin: auto;
+    position: relative;
+}
+
+.page_heading {
+    margin-top: 2%;
+}
+
+.images, .infoText {
+    cursor: pointer;
+}
+
+.sides {
+    height: 100%; /* adjust height to div */
+    width: calc(50% - 120px); /* 50% -> of div; 120px = target.width/2 */
+}
+
+#left {
+    float: left;
+}
+
+#right {
+    float: right;
+}
+
+#target {
+    /* OG height launcher: 1263 px */
+    position: absolute;
+
+    /* to put silhouette centered */
+    top: 270px;
+    left: 520px;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    z-index: 200;
+    height: 500px;
+    width: 153px;
+}
+
+#silhouette {
+    height: 100%;
+}
+
+.bubble_target {
+    width: 298.29px;
+    height: 87px;
+    position: absolute;
+}
+
+#crewCargoModule_bubble_target {
+    top: 80px;
+    left: 220px;
+}
+
+#guidanceSystem_bubble_target {
+    top: 147px;
+    left: 215px;
+}
+
+#launchAbortSystem_bubble_target {
+    left: 520px;
+    bottom: 460px;
+}
+
+#liquidFuelOxygen_bubble_target {
+    top: 273px;
+    left: 536px;
+}
+
+#nozzle_bubble_target {
+    top: 432px;
+    left: 192px;
+}
+
+#payloadFairing_bubble_target {
+    top: 6px;
+    left: 205px;
+}
+
+#rocketEngine_bubble_target {
+    top: 367px;
+    left: 521px;
+}
+
+#structuralSystem_bubble_target {
+    top: 250px;
+    left: 188px;
+}
+
+#serviceModule_bubble_target {
+    top: 130px;
+    left: 525px;
+}
+
+.parts_target {
+    position: absolute;
+}
+
+#crewCargoModule_target {
+    width: 37.3px;
+    height: 42px;
+    top: 55px;
+    left: 61px;
+}
+
+#serviceModule_target {
+    width: 16.6px;
+    height: 14px;
+    top: 102px;
+    left: 68px;
+}
+
+#launchAbortSystem_target {
+    width: 22.5px;
+    height: 42px;
+    left: 65.5px;
+}
+
+#liquidFuelOxygen_target {
+    width: 40.38px;
+    height: 156px;
+    top: 205px;
+    left: 57px;
+}
+
+#nozzle_target {
+    width: 76.5px;
+    height: 86px;
+    top: 414px;
+    left: 38px;
+}
+
+#payloadFairing_target {
+    width: 42.6px;
+    height: 99px;
+    top: 38px;
+    left: 55px;
+}
+
+#rocketEngine_target {
+    width: 32.7px;
+    height: 56px;
+    top: 365px;
+    left: 60px;
+}
+
+#structuralSystem_target {
+    width: 152px;
+    height: 350px;
+    top: 126px;
+}
+
+#guidanceSystem_target {
+    width: 32.5px;
+    height: 41px;
+    top: 93px;
+    left: 60.5px;
+}
+
+.quiz_btn {
+    margin-left: 80%;
+    margin-top: -100%;
+    width: 200px;
+}
+
+.quiz_btn-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+#levelBackBtn {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    margin-left: 35px;
+    top: 18px;
+    cursor: pointer;
+    background-color: transparent;
+}

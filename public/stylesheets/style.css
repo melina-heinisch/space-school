@@ -1,0 +1,77 @@
+/* Import der zusaetzlichen Fonts (von Google Fonts Seite kopiert) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&family=Nova+Mono&family=Share+Tech+Mono&display=swap');
+
+/*---------- Setzt Hintergrundbild, Art der Streckung und Standard-Font ------------*/
+body {
+    background-image: url("../images/galaxy_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    background-color: #2C003E;
+}
+
+/*---------------------- Standard Formatierung für Überschriften  ---------------------*/
+.page_heading {
+    font-family: 'Share Tech Mono', monospace;
+    position: relative;
+    text-align: center;
+    display: flex;
+    color: white;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header_row {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+/*--------------------------------- Home Button Format -------------------------------*/
+.homebutton {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    left: 15px;
+    top: 15px;
+    cursor: pointer;
+    background: transparent;
+}
+
+/*------------------------------- Style für alle Buttons -----------------------------*/
+.basic_btn {
+    color: white;
+    height: 40px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: center;
+    justify-content: center;
+    inline-size: auto;
+    padding: 0 20px 0 20px;
+    box-shadow: 5px 5px 10px slategray;
+}
+
+.primary_btn {
+    background-color: #FF8300;
+}
+
+.primary_btn:hover {
+    background-color: #db6400;
+}
+
+.secondary_btn {
+    background-color: lightslategray;
+    opacity: 90%;
+}
+
+.secondary_btn:hover {
+    background-color: slategray;
+    opacity: 100%;
+}

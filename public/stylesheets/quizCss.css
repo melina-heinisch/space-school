@@ -1,0 +1,188 @@
+/** Frage hat eine Schriftgröße, leicht transparenten Hintergrund, eine gewisse Größe, abgerundete Ecken
+Der Text ist zentiert und die Frage hat Abstand zu den Antworten. Das Textfeld darf nicht in der größe verändert werden
+Und die Maus soll normal bleiben, nicht zum "Text eingeben" cursor werden **/
+#question {
+    font-size: 30px;
+    background-color: rgba(255, 255, 255, 0.63);
+    width: 900px;
+    height: 100px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 15px;
+    resize: none;
+    cursor: default;
+}
+
+/** Alle Antwortfelder werden angesprochen. Sie haben eine gewisse Größe, leicht transparenten Hintergrund und eine weiße Umrandung
+Der Rand ist abgerundet. Die Textfelder dürfen nicht in der größe verändert werden, der Text hat eine gewisse größe**/
+#answers textarea {
+    width: 430px;
+    height: 140px;
+    background-color: rgba(255, 255, 255, 0.63);
+    border: 2px solid #FFFFFF;
+    border-radius: 6px;
+    resize: none;
+    font-size: 20px;
+}
+
+/** Wenn die Maus über den Antworten steht, wird der Hintergrund etwas mehr weiß und die Umrandung orange**/
+#answers textarea:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: #FF8300;
+}
+
+/** Div damit die Textfelder nebeeinander stehen können**/
+.inline {
+    width: 40%;
+    display: inline-block;
+    margin: 5px;
+}
+
+/** Antworten die Links stehen müssen rechtsbündig sein damit sie in der Mitte anliegen. Der Text ist mittig und die Maus wird
+zum Pointer um das anclicken zu suggerieren**/
+#answer1, #answer3 {
+    float: right;
+    text-align: center;
+    cursor: pointer;
+}
+
+/** Antworten die Rechts stehen müssen linksbündig sein damit sie in der Mitte anliegen. Der Text ist mittig und die Maus wird
+zum Pointer um das anclicken zu suggerieren**/
+#answer2, #answer4 {
+    float: left;
+    text-align: center;
+    cursor: pointer;
+}
+
+#confirm_button {
+    background-color: #FF8300;
+}
+
+/** Alle Elemente der Seite sind in der Mitte und etwas nach unten verschoben**/
+.quiz_div {
+    text-align: center;
+    margin-top: 6%;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.quiz_div-fadeIn {
+    opacity: 1;
+    visibility: visible;
+}
+
+/** Gameover and GameWon FadeIn **/
+
+.gameovermenu {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s ease-out;
+}
+
+.gameovermenu-fadeIn {
+    opacity: 1;
+    visibility: visible;
+}
+
+.gamewonmenu {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s ease-out;
+}
+
+.gamewonmenu-fadeIn {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ---------------------------- Texte ---------------------------- */
+
+.texte-row h1 {
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    transition: font-size 3s ease-out;
+}
+
+#expldiv {
+    display: block;
+    height: 10%;
+    top: 10%;
+    text-align: center;
+}
+
+#trophydiv {
+    display: block;
+    height: 10%;
+    top: 12%;
+    text-align: center;
+}
+
+.text1 {
+    top: 45%;
+    font-size: 50px;
+    font-weight: 500;
+    color: white;
+}
+
+.text2 {
+    top: 55%;
+    font-size: 30px;
+    font-weight: 300;
+    color: white;
+}
+
+/** Buttons **/
+
+.button-row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    align-content: center; /*optional -> lines*/
+    position: absolute;
+    top: 70%;
+}
+
+.gameoverBtn {
+    margin: 20px;
+    height: 60px;
+    width: 15%;
+    font-size: 99%;
+}
+
+.gamewonBtn {
+    margin: 20px;
+    height: 60px;
+    width: 15%;
+    font-size: 99%;
+}
+
+#levelBackBtn {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    margin-left: 35px;
+    top: 18px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}

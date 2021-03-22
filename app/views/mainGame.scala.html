@@ -1,0 +1,140 @@
+@()(implicit assetsFinder: AssetsFinder)
+
+    @main("Space Explorer") {
+        <head>
+            <meta charset="utf-8">
+            <title>Space Explore</title>
+            <link rel="stylesheet" type="text/css" href="@assetsFinder.path("stylesheets/mainGameCSS.css")">
+        </head>
+        <body>
+            <canvas id="myCanvas" width="480" height="320"></canvas>
+
+                <!-- ---------------------------- Hauptmenü ---------------------------- -->
+
+            <div id="mainmenu" class="mainmenu">
+
+                <div class="header_row">
+                    <a href="@routes.MainPageController.mainpage()"><img class="homebutton" src="@routes.Assets.versioned("/images/home.png")" alt="home"></a>
+                    <a href= '@routes.MainGameController.chooseLevel()'><img id="levelBackBtn" src="@routes.Assets.versioned("/images/selectLevel.png")" alt="backIcon"></a>
+                </div>
+
+                <img id="logo" src="@routes.Assets.versioned("/images/rocket.png")" alt="Rocket " height="250" >
+
+                <div id="texte-row" class="texte-row">
+                    <h1 id="text1" class="text1">Willkommen bei Space Explore!</h1>
+                </div>
+
+                <div id="button-row" class="button-row">
+                    <button id="startGameButton" class="primary_btn basic_btn">Starte Level <span id="currLvl"></span></button>
+                    <a id="tutorial_Btn" type="button" data-toggle="modal" data-target="#tutorial_Modal"><img src="@routes.Assets.versioned("/images/question.png")" alt="questionmark" onclick="prep_modal()" width="50" height="50"></a>
+                </div>
+
+                <div id="modalDiv">
+                    <div class="modal fade" id="tutorial_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="intro_Header">Spielregeln</h5>
+                                    <button id="closeModal" type="button" class="close" aria-label="Okay">
+                                        <span aria-hidden="true" >&times;</span> <!-- Small "x" to close Window -->
+                                    </button>
+                                </div>
+                                <div class="modal-body" id="intro_body">
+                                    <div class="modal-split">
+                                        <p id="intro_Heading">Hallo Space Explorer!</p>
+                                        <p>Erfülle deine Mission, indem du alle Weltraumschrott-Teile einsammelst, die auf vergangenen Weltraum-Missionen verloren gegangen sind.</p>
+                                        <img class="intro_img" src="@routes.Assets.versioned("/images/collectTrash.gif")" alt="giphy" width="500" height="300">
+                                    </div>
+                                    <div class="modal-split">
+                                        <p>Welche Teile dir noch fehlen, siehst du jederzeit in der Liste am rechten Bildschirmrand. Jedes der Teile kann nur einmal eingesammelt werden.<br>
+                                        </p>
+                                        <img class="intro_img" src="@routes.Assets.versioned("/images/collectedExample.png")" alt="giphy" width="500" height="300">
+                                    </div>
+                                    <div class="modal-split">
+                                        <p id="tut_achtung">Aber Achtung!</p>
+                                        <p>Pass auf, dass du nicht von den Asteroiden getroffen wirst,
+                                            sonst wird deine Rakete beschädigt und du verlierst eines deiner drei Leben!
+                                        </p>
+                                        <img class="intro_img" src="@routes.Assets.versioned("/images/crashGif.gif")" alt="giphy" width="500" height="300">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <span id="intro_pageNrSpan">Seite <span id="pageNr"> </span> / 3</span>
+                                    <button id="back_button" type="button" class="secondary_btn basic_btn">Zurück</button>
+                                    <button id="next_button" type="button" class="primary_btn basic_btn">Weiter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <!-- ---------------------------- GameOver Menü ---------------------------- -->
+
+            <div id="gameovermenu" class="gameovermenu">
+                <div><a href ="@routes.MainPageController.mainpage()"><img class="homebutton" src="@routes.Assets.versioned("/images/home.png")" width="50px" height="50px" alt="home"> </a></div>
+
+                <div id="texte-row" class="texte-row">
+                    <div id="expldiv">
+                        <img src="@routes.Assets.versioned("/images/explosion.png")" alt="explosion" width="20%" height="20%">
+                    </div>
+                    <h1 id="text1" class="text1"><span> Game Over </span></h1>
+                    <h1 id="text2" class="text2"><span> Du hast <span id="endPointsSpan"></span>
+                        Teile gesammelt! </span></h1>
+                </div>
+                <div id="button-row" class="button-row">
+                    <button id="levelBtn" class="secondary_btn basic_btn gameoverBtn">Zurück zur<br>Levelauswahl</button>
+                    <button id="restartBtn" class="primary_btn basic_btn gameoverBtn">Neustart</button>
+                </div>
+
+            </div>
+
+                <!-- ---------------------------- GameWon Menü ---------------------------- -->
+
+            <div id="gamewonmenu" class="gamewonmenu">
+                <div><a href ="@routes.MainPageController.mainpage()"><img class="homebutton" src="@routes.Assets.versioned("/images/home.png")" width="50px" height="50px" alt="home"> </a></div>
+
+                <div id="texte-row" class="texte-row">
+                    <div id="trophydiv">
+                        <img src="@routes.Assets.versioned("/images/trophy.png")" alt="trophy" width="20%" height="20%">
+                    </div>
+                    <h1 id="text1" class="text1"><span> Glückwunsch! </span></h1>
+                    <h1 id="text2" class="text2"><span> Du hast alle Teile gesammelt! </span></h1>
+                    <h1 id="textPuzzle" class="textPuzzle">Jetzt auf zum Puzzle!</h1>
+                </div>
+                <div id="button-row" class="button-row">
+                    <button id="levelBtnWon" class="secondary_btn basic_btn gamewonBtn">Zurück zur<br>Levelauswahl</button>
+                    <button id="puzzleBtn" class="primary_btn basic_btn gamewonBtn" onclick="openPuzzle()">Zum Puzzle!</button>
+                </div>
+            </div>
+
+                <!-- ---------------------------- InGame ---------------------------- -->
+
+            <div id="ingame" class="ingame">
+
+                <div id="punktzahlDiv" class="punktzahlDiv">
+                    <p id="points" class="points"><span id="pointsSpan">0</span> Teile</p>
+                </div>
+
+                <div class="border-right" id="sidebar-wrapper">
+                    <div class="sidebar-heading">Gesammelte Teile</div>
+                    <div class="puzzle_list" id="puzzle_list">
+                            <!-- hier landen die moeglichen Puzzleteile je nach Level -->
+                    </div>
+                </div>
+
+                <div id="lives">
+                    <img id = "live1" src="@routes.Assets.versioned("/images/heart.png")" width ="50px" height="50px" alt="heart">
+                    <img id = "live2" src="@routes.Assets.versioned("/images/heart.png")" width ="50px" height="50px" alt="heart">
+                    <img id = "live3" src="@routes.Assets.versioned("/images/heart.png")" width ="50px" height="50px" alt="heart">
+                </div>
+
+                <div id="info" class="info" style="display: none">Empty</div>
+
+            </div>
+            <script src="@routes.Assets.versioned("javascripts/multiPageModalPrep.js")"></script>
+            <script src="@routes.Assets.versioned("javascripts/gameTutorial.js")"></script>
+            <script src="@routes.Assets.versioned("javascripts/levelData.js")"></script>
+            <script src="@routes.Assets.versioned("javascripts/MainGameJS.js")"></script>
+        </body>
+    }

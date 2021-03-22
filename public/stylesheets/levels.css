@@ -1,0 +1,44 @@
+body {
+    color: white;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-top: 3px;
+}
+
+#icon_wrapper {
+    width: 70%;
+    display: block;
+    height: available;
+    background-color: rgba(250, 250, 250, .2);
+    text-align: center;
+    margin: 5% auto;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.header_row {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.level_icon {
+    width: 29%;
+    display: inline-block;
+    cursor: pointer;
+    margin: 15px;
+    border-radius: 15px;
+    background-color: #2C003E;
+    box-shadow: 5px 5px 10px ghostwhite;
+    opacity: 0.3;
+}
+
+.lvl_pic {
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.level_icon:hover {
+    width: 29.5%;
+}

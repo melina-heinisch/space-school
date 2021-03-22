@@ -1,0 +1,42 @@
+/* setzt Hintergrund und passende Hintergrundfarbe für Rest der Seite */
+body {
+    background-image: url("../images/schoolback_big.jpg");
+    background-color: #F4FAFB;
+    width: 90%; /* keine Ahnung warum das hier geht, aber ohne ist der Hintergrund breiter als das Fenster */
+}
+
+#welcome_header {
+    font-family: 'Share Tech Mono', monospace;
+    color: #220073;
+    position: relative;
+    left: 5%;
+    top: 7rem;
+    -moz-text-size-adjust: auto;
+}
+
+h1 {
+    font-size: 60px;
+    margin-bottom: 30px;
+}
+
+/*-------------------- Welcome Description Text ---------------------*/
+#desc_text {
+    width: 45%;
+    position: relative;
+    margin-top: 10%;
+    left: 5%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: slategray;
+}
+
+/*------------------ Start Program Button --------------------------*/
+#welcome_btn {
+    position: relative;
+    padding: 10px;
+    margin-top: 1%;
+    width: 30%;
+    height: 5%;
+    font-size: 30px;
+    left: 5%;
+}

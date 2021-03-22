@@ -1,0 +1,142 @@
+@()(implicit assetsFinder: AssetsFinder)
+
+    @main("Quiz") {
+        <head>
+            <meta charset="UTF-8">
+            <title>Title</title>
+            <link rel='stylesheet' href="@assetsFinder.path("stylesheets/quizCss.css")">
+        </head>
+        <body>
+            <a href="@routes.MainPageController.mainpage()"> <img class="homebutton" src="@routes.Assets.versioned("/images/home.png")" alt="Home" width="50" height="50"></a>
+            <a id ="lvlBackLink" href= '@routes.MainGameController.chooseLevelQuiz()'><img id="levelBackBtn" src="@routes.Assets.versioned("/images/selectLevel.png")" alt="backIcon"></a>
+
+            <div id="quiz_div" class ="quiz_div">
+                <textarea id="question" readonly></textarea>
+
+                <div id="answers">
+                    <div class="inline">
+                        <textarea id="answer1" onclick="checkAnswer('answer1')" readonly></textarea>
+                    </div>
+
+                    <div class="inline">
+                        <textarea id="answer2" onclick="checkAnswer('answer2')" readonly></textarea>
+                    </div>
+
+                    <br>
+
+                    <div class="inline">
+                        <textarea id="answer3" onclick="checkAnswer('answer3')" readonly></textarea>
+                    </div>
+
+                    <div class="inline">
+                        <textarea id="answer4" onclick="checkAnswer('answer4')" readonly></textarea>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="gameovermenu" class="gameovermenu">
+                <a href="@routes.MainPageController.mainpage()"> <img class="homebutton" src="@routes.Assets.versioned("/images/home.png")" alt="Home" width="50" height="50"></a>
+
+                <div id="texte-row" class="texte-row">
+                    <div id="expldiv">
+                        <img src="@routes.Assets.versioned("/images/explosion.png")" alt="explosion" width="20%" height="20%">
+                    </div>
+                    <h1 id="text1" class="text1"><span> Game Over </span></h1>
+                    <h1 id="text2" class="text2"><span> Du hast <span id="endPointsSpan"></span>
+                        von <span id="totalPointsSpan"></span> Fragen richtig beantwortet! </span></h1>
+                </div>
+                <div id="button-row" class="button-row">
+                    <button id="levelBtn" class="secondary_btn basic_btn gameoverBtn" onclick="window.location.href = '/levelsQuiz'">
+                        Zurück zur<br>Levelauswahl</button>
+                    <button id="restartBtn" class="primary_btn basic_btn gameoverBtn" onclick="window.location.href = '/quiz'">
+                        Neustart</button>
+                </div>
+
+            </div>
+
+            <div id="gamewonmenu" class="gamewonmenu">
+                <a href="@routes.MainPageController.mainpage()"> <img class="homebutton" src="@routes.Assets.versioned("/images/home.png")" alt="Home" width="50" height="50"></a>
+
+                <div id="texte-row" class="texte-row">
+                    <div id="trophydiv">
+                        <img src="@routes.Assets.versioned("/images/trophy.png")" alt="trophy" width="20%" height="20%">
+                    </div>
+                    <h1 id="text1" class="text1"><span> Glückwunsch! </span></h1>
+                    <h1 id="text2" class="text2"><span> Du hast alle Fragen richtig beantwortet! </span></h1>
+                </div>
+                <div id="button-row" class="button-row">
+                    <button id="levelBtnWon" class="secondary_btn basic_btn gamewonBtn" onclick="window.location.href = '/levelsQuiz'">
+                        Zurück zur<br>Levelauswahl</button>
+                    <button id="nextLvlBtn" class="primary_btn basic_btn gamewonBtn" onclick="openNextLevel()">
+                        Zum nächsten Level!</button>
+                </div>
+
+            </div>
+
+            <div class="modal fade" id="handbuchHint" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Glückwunsch!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Du hast eine neue Seite im Handbuch und ein Abzeichen in deinem Profil freigeschaltet!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn basic_btn secondary_btn" onclick="location.href = '/guide'">
+                                Zum Handbuch</button>
+                            <button type="button" class="btn basic_btn secondary_btn" onclick="location.href = '/profile'">
+                                Zum Profil</button>
+                            <button type="button" class="btn basic_btn primary_btn" data-dismiss="modal">
+                                Weiter</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="rightAnswer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog back" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-success">
+                            <h5 class="modal-title" id="exampleModalLabel">&#128077; Glückwunsch!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Das war richtig!
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="wrongAnswer" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-white">
+                            <h5 class="modal-title" id="exampleModalLabel">&#128078; Das nächste Mal klappts!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="reloadQuestions()">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Das war leider falsch. Die richtige Antwort ist "".
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn basic_btn primary_btn" data-dismiss="modal" onclick="reloadQuestions()">
+                                Weiter</button></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+                <!-- Script wird am Ende geladen, da die Seite erst einmal geladen haben muss damit der Inhalt dort geändert werden kann-->
+            <script src="@routes.Assets.versioned("javascripts/quizJS.js")"></script>
+        </body>
+    }

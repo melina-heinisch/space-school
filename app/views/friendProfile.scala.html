@@ -1,0 +1,45 @@
+@()(implicit assetsFinder: AssetsFinder)
+<!-- Name wird von Controller geschickt und im Profil angezeigt -->
+
+    @main("Meine Freunde") {
+
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" type="text/css" href="@assetsFinder.path("stylesheets/profilePage.css")">
+            <title>Profile Page</title>
+            <script src="@routes.Assets.versioned("javascripts/friendProfilePage.js")"></script>
+
+        </head>
+        <body>
+                <!-- Homebutton -->
+            <div class="header_row">
+                <button onclick="location.href = '@routes.FriendsController.friends()'" class="primary_btn basic_btn homebutton">
+                    Zurück zur Übersicht</button>
+            </div>
+            <div class="page_heading" id="friend_heading"><h1><span class="friend_name">Platzhalter</span>
+                's Profil</h1></div>
+
+                <!-- Wrapper für ID content, damit es zentriert und sich mit Fenstergröße bewegt-->
+            <div class="wrap">
+
+                <img src= "" alt="ProfilePicture" id="profilePicture" width="210px">
+
+                    <!-- Label, damit sie beide in einer Zeile bleiben-->
+                <label id="nameTag"> <b>Name:</b> </label>
+                <label id="presentedName"> <span class="friend_name"></span></label>
+
+                <label id="rankTag"> <b>Rang:</b> </label>
+                <label id="currentRank"> <span id="friend_rank"></span></label>
+
+                <p id="rewards"> <b>Abzeichen:</b></p>
+                <br>
+                <div id="rewardIcons" class="container" style="margin-left: 59%;">
+                    <img src="" id="rewardIcon1" width="75">
+                    <img src="" id="rewardIcon2" width="75">
+                    <img src="" id="rewardIcon3" width="75">
+                </div>
+            </div>
+
+        </body>
+
+    }

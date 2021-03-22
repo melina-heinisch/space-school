@@ -1,0 +1,40 @@
+@import controllers.AssetsFinder
+@import views.html.main
+@import controllers.routes
+@()(implicit assetsFinder: AssetsFinder)
+
+    @main("Login") {
+
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+                <!-- Schriftart muss importiert werden -->
+            <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+                <!-- style.css wird schon in main.html eingebunden, kann nach dem mergen gelöscht werde -->
+            <link href="@assetsFinder.path("stylesheets/loginPageCss.css")" rel="stylesheet">
+            <script src="@routes.Assets.versioned("javascripts/loginPageJs.js")"></script>
+        </head>
+
+        <body>
+            <div class="center">
+                <h1 style="font-family: 'Share Tech Mono', monospace;
+                    font-size: 30px">Login</h1>
+                <div id="textfields">
+                    <label class="block" for="userName">Benutzername</label>
+                    <input type="text" class="form-control" id="userName" name="userName">
+                    <br><br>
+                    <label class="block" for="password">Passwort</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                    <br><br>
+                </div>
+                <button id="loginBtn" class="basic_btn primary_btn" onclick="login()">Einloggen</button><br><br>
+
+                <a href="@routes.LoginController.register()" >
+                    <label id="registerLabel">Noch kein Account?</label>
+                    <button id="registBtn" class="basic_btn secondary_btn">Registrieren</button>
+                </a>
+            </div>
+        </body>
+
+    }
+

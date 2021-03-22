@@ -1,0 +1,56 @@
+@()(implicit assetsFinder: AssetsFinder)
+
+    @main("Meine Freunde") {
+
+
+        <head>
+            <meta charset="UTF-8">
+            <title>Title</title>
+            <link rel="stylesheet" type="text/css" href="@assetsFinder.path("stylesheets/friendsPage.css")">
+        </head>
+        <body>
+            <div class="header_row">
+                <a href="@routes.MainPageController.mainpage()"> <img class="homebutton" src="@routes.Assets.versioned("/images/home.png")" alt="Home" width="50" height="50"></a>
+                <h1 class="page_heading" >Meine Freundschaften</h1>
+            </div>
+
+            <div class="d-inline-block float-left" id="wrapper">
+                <input onkeyup="searchUsername()" class="d-inline-block form-control" type="search" placeholder="&#x1F50E; Freunde suchen" id="searchFriends">
+                <select id="user-filter" class=" d-inline float-right form-control" onchange="changeTable()">
+                    <optgroup label="Tabelle filtern nach...">
+                        <option id="filterAllUsers">Alle Nutzer</option>
+                        <option id="filterFriends">Meine Freunde</option>
+                    </optgroup>
+                </select>
+                <label for="user-filter" style="margin: 10px 10px 0" class="float-right text-white">Filter:</label>
+
+                <div id="friendsListDiv" class="table-responsive table-borderless text-center rounded d-lg-flex flex-grow-1 align-items-lg-start">
+                    <table id="friendshipTable" class="table table-striped table-borderless table-hover">
+                        <colgroup>
+                            <col style="width: 5%;">
+                            <col style="width: 10%;">
+                            <col style="width: 20%">
+                            <col style="width: 25%">
+                            <col style="width: 15%;">
+                            <col style="width: 15%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col"></th>
+                                <th scope="col">Benutzername</th>
+                                <th scope="col">Freundschafts-Status</th>
+                                <th scope="col"></th>
+                                <th scope="col">Profil besuchen</th>
+                            </tr>
+                        </thead>
+                        <tbody class="flex-grow-1">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <script src="@routes.Assets.versioned("javascripts/friendListScript.js")"></script>
+
+        </body>
+    }

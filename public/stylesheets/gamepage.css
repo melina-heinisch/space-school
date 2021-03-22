@@ -1,0 +1,105 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#border {
+    display: inline-block;
+    border: none;
+    position: absolute;
+    width: 85%;
+    height: 100%;
+    max-height: 100%;
+    left: -1%;
+    margin-top: -0.85%;
+}
+
+.puzzle_list {
+    padding: 10px;
+    overflow: auto;
+}
+
+#game_canvas {
+    position: relative;
+    width: inherit;
+    height: 900px;
+    margin: 0;
+    left: -1%;
+}
+
+#canvas_div {
+    width: 101%;
+    height: 90%;
+
+}
+
+#puzzle {
+    display: inline-flex;
+    horiz-align: right;
+    background-color: #7abaff;
+    width: 30%;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+#btn_div {
+    width: 100%;
+    bottom: 2%;
+}
+
+#quiz_btn {
+    display: block;
+    margin: auto;
+}
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-right: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.2rem;
+    font-size: 1.5rem;
+}
+
+#sidebar-wrapper {
+    width: 18rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-right: 0;
+    right: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-right: 0;
+        right: 0;
+        position: fixed;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 85%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-right: -15rem;
+    }
+}

@@ -1,0 +1,136 @@
+@()(implicit assetsFinder: AssetsFinder, name: String, rank: String)
+
+    @main("Willkommen!") {
+        <head>
+            <title></title>
+            <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/mainpage.css")">
+        </head>
+        <body>
+            <nav class="navbar navbar-light navbar-expand-md">
+                <div class="container-fluid">
+                    <div class="header_row">
+                        <p id="welcome_left" >Willkommen in der Space School!</p>
+                        <a id="intro_btn" type="button" data-toggle="modal" data-target="#intro_Modal" onclick="prep_modal()"><img src="@routes.Assets.versioned("/images/question.png")" alt="questionmark" width="30" height="30"></a>
+                    </div>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item" >
+                            <span id="welcome_message" class="nav-link">
+                                Hallo <span id="player_rank">@rank </span><span id="player_name">@name</span>!</span>
+                        </li>
+
+                        <li class="nav-item login_nav navicon" >
+                            <img id="menuBook" class="menuIcons" src="@routes.Assets.versioned("images/Book.png")" title="Mein Handbuch" alt="book_pic" onclick="location.href = '@routes.GuideController.guide()'">
+                        </li>
+                        <li class="nav-item login_nav" >
+                            <img id="menuGlobe" class="menuIcons" src="@routes.Assets.versioned("images/world.png")" title="Meine Freunde" alt="friends_pic" onclick="openFriends()">
+                        </li>
+                        <li class="nav-item login_nav" >
+                            <div class="dropdown">
+                                <a id="profile_Dropdown" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">
+                                <img class="menuIcons" src="@routes.Assets.versioned("images/AstronautLogin.png")" title="Mein Profil" width="60px" alt="login_pic">
+                                </a>
+                                <div id="dropdown_items" class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="@routes.ProfilePageController.profilePage()">Mein Profil</a>
+                                <a class="dropdown-item" href="@routes.MainPageController.logout()">Logout</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div id="wrapper">
+                <div id="sat_div" >
+                    <a dir="@routes.Assets.versioned("/images/puzzleTooltip.png")"><img src="@routes.Assets.versioned("images/satellite.png")" alt="satellite-pic" id="main_satellite" onclick="location.href = '@routes.MainGameController.chooseLevelPuzzle()'"></a>
+                </div>
+
+                <div id="earth_div">
+                    <a dir="@routes.Assets.versioned("/images/mainTooltip.png")" ><img src="@routes.Assets.versioned("/images/earth.png")" alt="earth-pic" id="main_earth" onclick="location.href = '@routes.MainGameController.chooseLevel()'"></a>
+                </div>
+
+                <img src="@routes.Assets.versioned("/images/moon.png")" alt="moon" id="main_moon">
+
+                <div id="tele_div" >
+                    <a dir="@routes.Assets.versioned("/images/quizTooltip.png")">
+                        <img src="@routes.Assets.versioned("images/Tele.png")" alt="telescope image" id="main_tele" onclick="location.href = '@routes.MainGameController.chooseLevelQuiz()'">
+                    </a>
+                </div>
+            </div>
+
+            <div id="modalDiv">
+                <div class="modal fade" id="intro_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="intro_Header">Grundprinzip</h5>
+                                <button id="closeModal" type="button" class="close" aria-label="Okay">
+                                    <span aria-hidden="true" >&times;</span> <!-- Small "x" to close Window -->
+                                </button>
+                            </div>
+                            <div class="modal-body" id="intro_body">
+                                <div class="modal-split">
+                                    <p class="intro_Heading">Hallo Space Explorer!</p>
+                                    <p>Mach dich auf ein Abenteuer gefasst! Du wirst hier zuerst deinen eigenen Satelliten bauen, um mehr über das Weltall herauszufinden. Danach setzt du deinen eigenen Weltraumanzug zusammen, damit du im Weltall gut geschützt
+                                        bist und dann wirst du eine Trägerrakete basteln, damit du endlich ins Weltall fliegen kannst!
+                                        <br/>Jedes Level besteht aus drei Spielen, die wir dir jetzt kurz vorstellen.</p>
+
+                                </div>
+                                <div class="modal-split">
+                                    <p class="intro_Heading">Space Explore</p>
+                                    <p>Als erstes wirst du Teile, die auf vergangenen Missionen verloren gegangen sind einsammeln und bekommst dabei bereits erste Infos über sie. Diesen Spiel findest du, wenn du auf die Erde klickst!<br>
+                                    </p>
+                                    <img class="intro_img" src="@routes.Assets.versioned("/images/collectTrash.gif")" alt="giphy" width="500">
+                                </div>
+                                <div class="modal-split">
+                                    <p class="intro_Heading">Puzzle</p>
+                                    <p>Nachdem du alle Teile gesammelt hast, kannst du sie wieder zu einem neuen Objekt zusammensetzten und lernst dabei noch mehr über die einzelnen Teile. Das Spiel findest du beim Satellit!<br>
+                                    </p>
+                                    <img class="intro_img" src="@routes.Assets.versioned("/images/puzzleExample.gif")" alt="giphy" width="500">
+                                </div>
+                                <div class="modal-split">
+                                    <p class="intro_Heading">Quiz</p>
+                                    <p>Zum Schluss kannst du dein Wissen in einem Quiz überprüfen. Dieses Spiel verbirgt sich hinter dem Teleskop.<br>
+                                    </p>
+                                    <img class="intro_img" src="@routes.Assets.versioned("/images/quizExample.png")" alt="giphy" width="500">
+                                </div>
+                                <div class="modal-split">
+                                    <p class="intro_Heading">Rang und Abzeichen</p>
+                                    <p>Während du Level für Level abschließt, steigst du immer weiter in der Karriereleiter auf bis du schließlich ein Astronaut bist. Deinen aktuellen Rang kannst du,
+                                        genauso wie deine gesammelten Abzeichen, auf deiner Astronauten-ID sehen. Deine ID findest du oben rechts bei dem kleinen Astronauten.<br/>
+                                    </p>
+                                    <img class="intro_img" src="@routes.Assets.versioned("/images/idExample.png")" alt="giphy" width="500">
+                                </div>
+                                <div class="modal-split">
+                                    <p class="intro_Heading">Handbuch</p>
+                                    <p>Außerdem schaltest du mit der Zeit Seiten in deinem Handbuch frei, die dir zum einen die Infografiken aus dem Puzzle zeigen, zum anderen
+                                        cooles Hintergrundwissen zu den einzelnen Objekten gibt! Klicke dafür einfach auf das Buch oben rechts.<br/>
+                                    </p>
+                                    <img class="intro_img" src="@routes.Assets.versioned("/images/guideExample.png")" alt="giphy" width="500">
+                                </div>
+                                <div class="modal-split">
+                                    <p class="intro_Heading">Freundschaften</p>
+                                    <p>Und eins noch: Du kannst Freundschaften mit anderen Nutzers schließen und ihr Profil sehen, ist das nicht cool? Klicke dafür oben rechts auf die kleine Weltkugel. </p>
+                                    <img class="intro_img" src="@routes.Assets.versioned("/images/friendsExample.png")" alt="giphy" width="500">
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <span id="intro_pageNrSpan">Seite <span id="pageNr"> </span> / 7</span>
+                                <button id="back_button" type="button" class="secondary_btn basic_btn">Zurück</button>
+                                <button id="next_button" type="button" class="primary_btn basic_btn">Weiter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="@routes.Assets.versioned("javascripts/multiPageModalPrep.js")"></script>
+            <script src="@routes.Assets.versioned("javascripts/gameIntroduction.js")"></script>
+            <script src="@routes.Assets.versioned("javascripts/mainPage.js")"></script>
+
+        </body>
+    }
+
